@@ -15,7 +15,7 @@ const App =()=> {
   const[searchQuery,setSearchQuery]=useState('')
 
   const handleSearchQuery = (value) => {
-    setSearchQuery({value})
+    setSearchQuery(value)
   }
 
 
