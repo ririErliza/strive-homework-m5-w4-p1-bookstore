@@ -5,11 +5,7 @@ import Loading from './Loading'
 import Error from './Error'
 
 const CommentArea =({asin}) => {
-  // state = {
-  //   comments: [], // comments will go here
-  //   isLoading: false,
-  //   isError: false,
-  // }
+
   const [comments, setComments] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState(false)
@@ -20,6 +16,8 @@ const CommentArea =({asin}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[asin])
 
+
+  //useEffect below is to make the comment that deleted disappear without re-freshing the page all the time
   useEffect( ()=> {
     if(isLoading){
     getComment()
@@ -27,13 +25,7 @@ const CommentArea =({asin}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[isLoading])
 
-   // componentDidUpdate = async (prevProps) => {
-  //   if (prevProps.asin !== this.props.asin) {
-  //     this.setState({
-  //       isLoading: true,
-  //     })
-      
-  // }
+
   
   const getComment =async()=>{
     try {
@@ -50,25 +42,21 @@ const CommentArea =({asin}) => {
       console.log(response)
       if (response.ok) {
         let comments = await response.json()
-        // this.setState({
-        //   comments: comments,
-        //   isLoading: false,
-        //   isError: false,
-        // })
+   
         setComments(comments)
         setIsLoading(false)
         setIsError(false)
 
       } else {
         console.log('error')
-        // this.setState({ isLoading: false, isError: true })
+        
         setIsLoading(false)
         setIsError(true)
       }
     } 
     catch (error) {
       console.log(error)
-      // this.setState({ isLoading: false, isError: true })
+      
       setIsLoading(false)
       setIsError(true)
     }
