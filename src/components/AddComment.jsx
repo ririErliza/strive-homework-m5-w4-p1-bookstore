@@ -2,34 +2,17 @@ import { useState, useEffect } from 'react'
 import { Button, Form } from 'react-bootstrap'
 
 const AddComment = ({asin}) => {
-  // state = {
-    // comment: {
-    //   comment: '',
-    //   rate: 1,
-    //   elementId: this.props.asin,
-    // },
-  // }
-
   const[comment, setComment] = useState({
     comment: '',
     rate: 1,
     elementId: asin,
   })
 
-  // componentDidUpdate(prevProps) {
-  //   if (prevProps.asin !== this.props.asin) {
-  //     this.setState({
-  //       comment: {
-  //         ...this.state.comment,
-  //         elementId: this.props.asin,
-  //       },
-  //     })
-  //   }
-  // }
-
   useEffect( () =>{
-    sendComment()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setComment(comment => ({
+      ...comment,
+      elementId: asin
+    }))
   },[asin])
   //if the single book got clicked, asin changed, and sendComment() function will be invoked
 
