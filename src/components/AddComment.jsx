@@ -14,7 +14,7 @@ const AddComment = ({asin}) => {
       elementId: asin
     }))
   },[asin])
-  //if the single book got clicked, asin changed, and sendComment() function will be invoked
+  //if the single book got clicked, asin changed, and setComment() function will be invoked
 
   const sendComment = async (e) => {
     // e.preventDefault()

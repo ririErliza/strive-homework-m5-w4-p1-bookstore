@@ -10,8 +10,18 @@ const BookList =({searchQuery,books})=>{
   // }
 const[selected, setSelected]=useState(null)
 
+/*
+const [name, setName] = useState("")
+setName("Erliza")
+
+const [array, setArray] = useState([])
+setArray([1,3,5])
+*/
+
+
+
 const handleSelected = (asin) => {
-    setSelected({asin })
+    setSelected(asin)
   }
 
  

@@ -20,6 +20,13 @@ const CommentArea =({asin}) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[asin])
 
+  useEffect( ()=> {
+    if(isLoading){
+    getComment()
+  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[isLoading])
+
    // componentDidUpdate = async (prevProps) => {
   //   if (prevProps.asin !== this.props.asin) {
   //     this.setState({
@@ -74,8 +81,8 @@ const CommentArea =({asin}) => {
       <div>
         {isLoading && <Loading />}
         {isError && <Error />}
-        <AddComment asin={asin} />
-        <CommentList commentsToShow={comments} />
+        <AddComment  asin={asin} />
+        <CommentList setLoading={setIsLoading} commentsToShow={comments} />
       </div>
     )
 
